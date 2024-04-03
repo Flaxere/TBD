@@ -17,4 +17,5 @@ def load_config(app, overrides):
     for key in overrides:
         app.config[key] = overrides[key]
 
-    nitter
+    print("nitter")
+    

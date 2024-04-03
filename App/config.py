@@ -16,3 +16,5 @@ def load_config(app, overrides):
     app.config["JWT_COOKIE_CSRF_PROTECT"] = False
     for key in overrides:
         app.config[key] = overrides[key]
+
+    nitter

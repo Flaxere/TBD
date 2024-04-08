@@ -24,6 +24,7 @@ def create_user_action():
     create_user(data['username'], data['password'])
     return redirect(url_for('user_views.get_user_page'))
 
+
 @user_views.route('/api/users', methods=['GET'])
 def get_users_action():
     users = get_all_users_json()
@@ -37,4 +38,4 @@ def create_user_endpoint():
 
 @user_views.route('/static/users', methods=['GET'])
 def static_user_page():
-  return send_from_directory('static', 'static-user.html')
+  return send_from_directory('static', 'static-used.html')

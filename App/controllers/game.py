@@ -1,7 +1,7 @@
 from App.models import Game
 from App.database import db
 
-def NewGame():
+def create_game():
     new_game = Game()
     db.session.add(new_game)
     db.session.commit()

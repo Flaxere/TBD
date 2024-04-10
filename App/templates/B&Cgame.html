@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}Bulls and Cows{% endblock %}
-{% block page %}Suave{% endblock %}
+{% block page %}Bulls and Cows{% endblock %}
 
 {{ super() }}
 
@@ -9,13 +9,6 @@
     {% if is_authenticated %}
         <p> Welcome {{current_user.username}} </p>
     {% endif %}
-    <form action = "/game">
+    <p>yow.</p>
 
-        <input type = "submit" class = "btn-large red accent-1" value="PLAY GAME">
-    </form>
-    <ul>
-    
-    <li><a href = "/game">Game</a></li>
-</ul>
-    
 {% endblock %}

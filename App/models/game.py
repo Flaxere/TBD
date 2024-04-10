@@ -6,7 +6,7 @@ class Game(db.Model):
   code = db.Column(db.String(4), nullable=False)
   
   def __init__(self):
-    self.code = generate_code()
+    self.code = self.generate_code()
    
   def __repr__(self):
     return f'<Game {self.id} {self.code}>'
@@ -21,10 +21,10 @@ class Game(db.Model):
      string = ""
      for i in range(4):
        char = random.choice(string.digits)
-       while in_string(string,char) == True:
+       while self.in_string(string,char) == True:
           char = random.choice(string.digits)
        string += char
-       test = in_string(string,char)
+       test = self.in_string(string,char)
        
      return string
 

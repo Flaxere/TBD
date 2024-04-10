@@ -1,3 +1,4 @@
+
 from flask import Blueprint, render_template, jsonify, request, flash, send_from_directory, flash, redirect, url_for
 from flask_jwt_extended import jwt_required, current_user, unset_jwt_cookies, set_access_cookies
 
@@ -22,8 +23,11 @@ def get_user_page():
 @jwt_required()
 def identify_page():
     return render_template('message.html', title="Identify", message=f"You are logged in as {current_user.id} - {current_user.username}")
-    
-
+   
+@auth_views.route('/game', methods=['GET'])
+def get_game():
+    print("ddd")
+    return render_template('B&Cgame.html')
 @auth_views.route('/login', methods=['POST'])
 def login_action():
     data = request.form

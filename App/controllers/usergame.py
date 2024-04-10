@@ -1,3 +1,3 @@
-from App.models import UserGame
+from App.models import usergame
 from App.database import db
 

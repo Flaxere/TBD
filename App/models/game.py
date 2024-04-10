@@ -1,10 +1,11 @@
 import random
 from App.database import db
+
 class Game(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   code = db.Column(db.String(4), nullable=False)
   
-  def __init__(self, code):
+  def __init__(self):
     self.code = generate_code()
    
   def __repr__(self):
@@ -23,7 +24,8 @@ class Game(db.Model):
        while in_string(string,char) == True:
           char = random.choice(string.digits)
        string += char
-       in_string(string,char)
+       test = in_string(string,char)
+       
      return string
 
  

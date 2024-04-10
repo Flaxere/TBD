@@ -27,7 +27,7 @@ def identify_page():
 @auth_views.route('/game', methods=['GET'])
 def get_game():
     print("ddd")
-    return render_template('B&Cgame.html')
+    return render_template('gamePage.html')
 @auth_views.route('/login', methods=['POST'])
 def login_action():
     data = request.form

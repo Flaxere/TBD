@@ -13,11 +13,13 @@ from App.controllers import (
 user_views = Blueprint('user_views', __name__, template_folder='../templates')
 
 @user_views.route('/users', methods=['GET'])
+@jwt_required()
 def get_user_page():
     users = get_all_users()
     return render_template('users.html', users=users)
 
 @user_views.route('/users', methods=['POST'])
+@jwt_required()
 def create_user_action():
     data = request.form
     flash(f"User {data['username']} created!")
@@ -25,6 +27,7 @@ def create_user_action():
     return redirect(url_for('user_views.get_user_page'))
 
 @user_views.route('/api/users', methods=['GET'])
+@jwt_required()
 def get_users_action():
     users = get_all_users_json()
     return jsonify(users)
@@ -36,5 +39,6 @@ def create_user_endpoint():
     return jsonify({'message': f"user {user.username} created with id {user.id}"})
 
 @user_views.route('/static/users', methods=['GET'])
+@jwt_required()
 def static_user_page():
   return send_from_directory('static', 'static-user.html')

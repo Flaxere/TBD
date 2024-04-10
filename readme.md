@@ -181,8 +181,9 @@ from App.views import (
 # New views must be imported and added to this list
 views = [
     user_views,
-    index_views.
-    game_views
+    index_views,
+    game_views,
+    user_game_views
 ]
 ```
 

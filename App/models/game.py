@@ -19,10 +19,11 @@ class Game(db.Model):
 
   def generate_code(self):
      string = ""
+     
      for i in range(4):
-       char = random.choice(string.digits)
+       char =  str(random.randint(0,9))
        while self.in_string(string,char) == True:
-          char = random.choice(string.digits)
+          char =  str(random.randint(0,9))
        string += char
        test = self.in_string(string,char)
        

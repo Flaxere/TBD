@@ -7,18 +7,44 @@
 {% block content %}
     <h3>GUESS</h3>
     <p>{{game.game.code}}</p>
-    <form action = '/usergame/play/guess' method = 'POST'>
-    <div class="input-field col s6 m6">
+    
+    <div class = "row">
+    <form action = '/usergame/play/guess/{{game.id}}' method = 'POST'>
+    <div class="input-field col s12 m12" style = "display: inline-flex;">
+        {%if game.completed == False%}
         {%for i in range(0,4)%}
-        <select name="n{{i}}">
+        <div>
+          <input list = "choice" name="n{{i}}">
+          <datalist id="choice" >
+        
+          {%for x in range(0,10)%}
+          <option value="{{x}}">
+          {%endfor%}
+     
+      </datalist>
+      </div>
+      
+        {%endfor%}
+    </div>
+        <input type ="submit" class = "btn">
+        {%else%}
+    <div class="input-field col s12 m12" style = "display: inline-flex;"></div>
+        {%for i in range(0,4)%}
+        <input list = "choice" name="n{{i}}">
+          <datalist id="n{{i}}" >
+        
           {%for x in range(0,10)%}
           <option value="{{x}}">{{x}}</option>
           {%endfor%}
         </select>
-        {%endfor%}
+      {%endfor%}
+      {%endif%}
       </div>
       
-     <input type = "submit" class = "btn large" value = "guess">
+     
     </form>
 
+    
+     
+  </div>
 {% endblock %}

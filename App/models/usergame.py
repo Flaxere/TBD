@@ -5,6 +5,7 @@ class UserGame(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
   game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
   guesses = db.Column(db.Integer, nullable = False)
+  completed = db.Column(db.Boolean,default = False)
   game = db.relationship('Game')
   
   

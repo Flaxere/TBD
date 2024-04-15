@@ -47,8 +47,12 @@ def guess_code(guessed_code,id,):
 
     uGame.attempts += str(uGame.bulls) + str(uGame.cows) + guessed_code
 
+    if uGame.guesses == 10:
+        uGame.completed = True
     #The below snippet checks victory condition
     if(bullCows.get('Bulls') == 4):
         uGame.completed = True
+        uGame.result = True
+
     db.session.commit()
     return bullCows

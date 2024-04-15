@@ -14,6 +14,7 @@
        <!--Checks if the game is still ongoing -->
         {%if game.completed == False%}
         <!--Prints previous guesses-->
+        <p>Tries Remaining:  {{10 -game.guesses}}</p>
         {%for i in range(game.guesses)%}
         <div>
         <div class="input-field col s12 m12" style = "display: inline-flex;">
@@ -48,6 +49,7 @@
         <input type ="submit" class = "btn">
         {%else%}
         <!--Checks if the game has been completed-->  
+        
         {%for i in range(game.guesses)%}
         <div>
         <div class="input-field col s12 m12" style = "display: inline-flex;">
@@ -61,14 +63,20 @@
           <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
         </div>
         {%endfor%}
-
+       
         <br>
        
       </div>
+      {%if game.result == True%}
       <h3>VICTORY</h3>
+      {%else%}
+      <h3>GAME OVER....</h3>
       {%endif%}
+      {%endif%}
+      
       </div>
       
+
      
     </form>
 

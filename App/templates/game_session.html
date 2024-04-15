@@ -5,39 +5,76 @@
 {{ super() }}
 
 {% block content %}
-    <h3>GUESS</h3>
+    <h3>Bulls and Cows</h3>
     <p>{{game.game.code}}</p>
     
     <div class = "row">
     <form action = '/usergame/play/guess/{{game.id}}' method = 'POST'>
-    <div class="input-field col s12 m12" style = "display: inline-flex;">
+    <div class="input-field col s12 m12" style = "display: inline-flex; flex-direction: column;">
+       <!--Checks if the game is still ongoing -->
         {%if game.completed == False%}
+        <!--Prints previous guesses-->
+        {%for i in range(game.guesses)%}
+        <div>
+        <div class="input-field col s12 m12" style = "display: inline-flex;">
+          {%for x in range(4)%} 
+          <div>
+            <input list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled>
+            <datalist >
+            </datalist>
+          </div>
+          {%endfor%}
+          <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
+        </div>
+        {%endfor%}
+        <div class="input-field col s12 m12" style = "display: inline-flex;">
         {%for i in range(0,4)%}
         <div>
-          <input list = "choice" name="n{{i}}">
-          <datalist id="choice" >
-        
-          {%for x in range(0,10)%}
-          <option value="{{x}}">
-          {%endfor%}
-     
-      </datalist>
+          <input list = "choice" name="n{{i}}" value = {{game.attempts[game.attempts|length-4+i]}}>
+            <datalist id="choice" >
+              {%for x in range(0,10)%}
+              <option value="{{x}}">
+              {%endfor%}
+            </datalist>
+           
+        </div>
+        {%endfor%}
+          <p>Bulls : {{game.bulls}} Cows : {{game.cows}}</p>
+          </div>
       </div>
       
-        {%endfor%}
+        
     </div>
         <input type ="submit" class = "btn">
         {%else%}
-    <div class="input-field col s12 m12" style = "display: inline-flex;"></div>
-        {%for i in range(0,4)%}
-        <input list = "choice" name="n{{i}}">
-          <datalist id="n{{i}}" >
-        
-          {%for x in range(0,10)%}
-          <option value="{{x}}">{{x}}</option>
+        <!--Checks if the game has been completed-->  
+        {%for i in range(game.guesses)%}
+        <div>
+        <div class="input-field col s12 m12" style = "display: inline-flex;">
+          {%for x in range(4)%} 
+          <div>
+            <input list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled>
+            <datalist >
+            </datalist>
+          </div>
           {%endfor%}
-        </select>
+          <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
+        </div>
+        {%endfor%}
+
+        <br>
+       <div class="input-field col s12 m12" style = "display: inline-flex;">
+        {%for i in range(0,4)%}
+        <div>
+        <input list = "choice" name="n{{i}}"  value = "4"  disabled>
+          <datalist id="n{{i}}" >
+            
+          </datalist>
+        </div>
       {%endfor%}
+      <p>Bulls : {{game.bulls}} Cows : {{game.cows}}</p>
+      </div>
+      <h3>VICTORY</h3>
       {%endif%}
       </div>
       

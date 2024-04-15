@@ -16,14 +16,14 @@ user_game_views = Blueprint('user_game_views', __name__, template_folder='../tem
 @jwt_required()
 def start_game_session(game_id):
     session = create_game_session(jwt_current_user.id,game_id)
-
+    
     return redirect(url_for('user_game_views.game_session',game_id=session.id))
 
 @user_game_views.route('/usergame/play/<int:game_id>', methods=['GET'])
 @jwt_required()
 def game_session(game_id):
     session = get_game_session(game_id)
-    
+     
     return render_template('game_session.html',game = session)
 
 @user_game_views.route('/usergame/play/guess/<int:game_id>', methods = ['POST'])

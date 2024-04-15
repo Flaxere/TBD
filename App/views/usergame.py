@@ -36,12 +36,16 @@ def game_guess(game_id):
         str +=data[f'n{i}']
     unique = 0
     for ch in str:
-        for i in range(4):
-            if(ch == data[f'n{i}']):
-                unique +=1
-    
-    if unique > 4:
-        flash("Please enter four unique numbers")
+        if ch >= "0" and ch <= "9":
+            for i in range(4):
+                if(ch == data[f'n{i}']):
+                    unique +=1
+        else:
+            flash("Please enter number '1 - 9' Only")
+            return redirect(request.referrer)
+        
+    if unique != 4:
+        flash("Please enter at least four unique numbers")
         return redirect(request.referrer)
     bullCows = guess_code(str,game_id)
     if(bullCows.get('Bulls')==4):

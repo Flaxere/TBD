@@ -1,21 +1,19 @@
 {% extends "layout.html" %}
 {% block title %}Bulls and Cows{% endblock %}
-{% block page %}Suave{% endblock %}
+{% block page %}TBD{% endblock %}
 
 {{ super() }}
 
 {% block content %}
-    <h1>Bulls and Cows</h1>
+    <h1 class = "glow">Bulls and Cows</h1>
     {% if is_authenticated %}
-        <p> Welcome {{current_user.username}} </p>
+        <p> Are you ready {{current_user.username}}?</p>
     {% endif %}
     <form action = "/game">
+        <button class="button glow-button"><span>Start</span></button>
+        <button class="button glow-button"><i class="material-icons">history</i></button>
 
-        <input type = "submit" class = "btn-large red accent-1" value="PLAY GAME">
     </form>
-    <ul>
-    
-    <li><a href = "/game">Game</a></li>
-</ul>
+
     
 {% endblock %}

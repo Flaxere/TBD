@@ -176,5 +176,6 @@ p {
   }
 
   #choice {
-    color:antiquewhite;
+    color: #07b0ef;
+    background-color: rgba(233, 60, 172, 0);
   }

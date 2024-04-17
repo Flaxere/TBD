@@ -9,11 +9,19 @@
     {% if is_authenticated %}
         <p> Are you ready {{current_user.username}}?</p>
     {% endif %}
-    <form action = "/game">
-        <button class="button glow-button"><span>Start</span></button>
-        <button class="button2 glow-button2"><i class="material-icons">history</i></button>
 
-    </form>
+    <div style = "display: inline-flex"
+        <form action = "/game">
+            <button class="button glow-button"><span>Start</span></button>
+            
+
+        </form>
+
+        <form action = "/playHistory">
+            <button class="button2 glow-button2"><i class="material-icons">history</i></button>
+
+        </form>
+    </div>
 
     
 {% endblock %}

@@ -20,7 +20,7 @@
         <div class="input-field col s12 m12" style = "display: inline-flex;">
           {%for x in range(4)%} 
           <div>
-            <input list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled>
+            <input id = "choice" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled>
             <datalist >
             </datalist>
           </div>
@@ -46,7 +46,8 @@
       
         
     </div>
-        <input type ="submit" class = "btn">
+    <button class="button3 glow-button3"><span>Check</span></button>
+
         {%else%}
         <!--Checks if the game has been completed-->  
         
@@ -54,8 +55,8 @@
         <div>
         <div class="input-field col s12 m12" style = "display: inline-flex;">
           {%for x in range(4)%} 
-          <div>
-            <input list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled >
+          <div style>
+            <input style = "color:aliceblue" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled >
             <datalist >
             </datalist>
           </div>

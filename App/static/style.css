@@ -5,17 +5,25 @@ body {
     font-size:30px;
     text-align: center;
   }
+
 p {
     color: #eggshell transparent;
     font-size: 20px;
+    text-align: justify;
 
  }
+
   h1 {
     font-family: "Press Start 2P", system-ui;
   }
+
+  h2 {
+    font-family: "VT323", system-ui;
+    text-align: left;
+  }
   
   input:disabled {
-    background-color: #ff4da6;
+    color: #ff4da6;
   }
   
   .glow {
@@ -130,3 +138,43 @@ p {
     box-shadow: 0 5px 15px rgba(255, 115, 71, 0.8);
   }
   
+  .button3 {
+    border-radius: 4px;
+    background-color: #E93CAC;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 40px;
+    font-family:"VT323", monospace;
+    padding: 20px;
+    width: 250px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+      
+      
+  .button3 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.2s;
+  }
+  
+  .button3 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    transition: 0.2s;
+  }
+  
+  
+  .glow-button3:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(233, 60, 172, 0.95);
+  }
+
+  #choice {
+    color:antiquewhite;
+  }

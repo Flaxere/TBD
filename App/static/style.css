@@ -4,6 +4,8 @@ body {
     color: #fff;
     font-size:30px;
     text-align: center;
+    position: fixed;
+    overflow: auto;
   }
 
 p {

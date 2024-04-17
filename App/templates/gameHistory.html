@@ -6,23 +6,27 @@
 
 {% block content %}
 <div class = "row">
-    <div class="col m3 list-container collection" style="max-height: 88vh;">
-        <ul>
-    {%for game in user.games %}
-        {%if game.completed == true%}
-        {%if game.id == id and game.completed == True%}
-        <li>
-            <a  class = "collection-item active white-text" href = '/playHistory/{{game.id}}'>Game {{game.id}}</a>
-        </li> 
-        {%else%}
-        <li>
-            <a  class = "collection-item  black-text" href = '/playHistory/{{game.id}}'>Game {{game.id}}</a>
-        </li>
-        {%endif%}
-        {%endif%}
-    {%endfor%}
-    </ul>
-    </div>
+    <section class="col s12 m3" style="margin-top: 5px; overflow-y:scroll; height: 86vh">
+        <ul class="collection">
+            {%for i in range(user.games|length) %}
+            {%if user.games[i].completed == true%}
+            {%if user.games[i].id == id and user.games[i].completed == True%}
+            <li>
+                <a  class = "collection-item active white-text" href = '/playHistory/{{user.games[i].id}}'>Game {{i+1}}</a>
+            </li> 
+            {%else%}
+            <li>
+                <a  class = "collection-item  black-text" href = '/playHistory/{{user.games[i].id}}'>Game {{i+1}}</a>
+            </li>
+            {%endif%}
+            {%endif%}
+        {%endfor%}
+              <!-- student listing here  -->
+     
+        </ul>
+      </section>
+    
+   
 
     <div class = "col m7">
         {%if game%}
@@ -42,4 +46,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock %}x

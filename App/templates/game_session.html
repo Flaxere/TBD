@@ -1,11 +1,10 @@
 {% extends "layout.html" %}
 {% block title %}Session{% endblock %}
-{% block page %}Play{% endblock %}
+{% block page %}Bulls and Cows{% endblock %}
 
 {{ super() }}
 
 {% block content %}
-    <h3>Bulls and Cows</h3>
     <p>{{game.game.code}}</p>
     
     <div class = "row">
@@ -21,17 +20,17 @@
           {%for x in range(4)%} 
           <div>
             <input id = "choice" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled>
-            <datalist >
+            <datalist>
             </datalist>
           </div>
           {%endfor%}
-          <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
+         &nbsp; <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
         </div>
         {%endfor%}
         <div class="input-field col s12 m12" style = "display: inline-flex;">
         {%for i in range(0,4)%}
         <div>
-          <input style = "color:aliceblue"  list = "choice" name="n{{i}}" value = "{{game.attempts[game.attempts|length-4+i]}}"  maxlength="1" >
+          <input id = "current-choice" name="n{{i}}" value = "{{game.attempts[game.attempts|length-4+i]}}"  maxlength="1" >
             <datalist id="choice" >
               {%for x in range(0,10)%}
               <option value="{{x}}">
@@ -40,7 +39,7 @@
            
         </div>
         {%endfor%}
-          <p>Bulls : {{game.bulls}} Cows : {{game.cows}}</p>
+          &nbsp; <p> Bulls : {{game.bulls}} Cows : {{game.cows}}</p>
           </div>
       </div>
       
@@ -51,31 +50,37 @@
   </form>
   
         {%else%}
+
       </form>
         <!--Checks if the game has been completed-->  
-        
+        {%if game.result == True%}
+        <h1 class = "glow">VICTORY!</h1>
+          {%if game.guesses == 1%}
+            <p> You got it in {{game.guesses}} attempt!</p>
+            {%else%}
+            <p> You got it in {{game.guesses}} attempts!</p>
+            {%endif%}
+        {%else%}
+        <h1 class = "glow">GAME OVER...</h3>
+        {%endif%}
+
         {%for i in range(game.guesses)%}
         <div>
         <div class="input-field col s12 m12" style = "display: inline-flex;">
           {%for x in range(4)%} 
           <div style>
-            <input style = "color:aliceblue" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled >
+            <input id = "choice" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled >
             <datalist >
             </datalist>
           </div>
           {%endfor%}
-          <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
+          &nbsp;<p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
         </div>
         {%endfor%}
        
         <br>
        
       </div>
-      {%if game.result == True%}
-      <h1 class = "glow">VICTORY</h1>
-      {%else%}
-      <h3>GAME OVER....</h3>
-      {%endif%}
       <form action = "/start_game/{{game.game_id}}" >
         <button class="button3 glow-button3"><span style='color:bisque'>Play Again</span></button>
      </form>

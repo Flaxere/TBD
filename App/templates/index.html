@@ -5,8 +5,12 @@
 {{ super() }}
 
 {% block content %}
+<div class="container">
+    <h2> <span style="text-align: left;"> TBD Presents...</span></h2>
+    <br> 
     <h1 class = "glow">Bulls and Cows</h1>
     {% if is_authenticated %}
+    <br>
         <p> Are you ready {{current_user.username}}?</p>
     {% endif %}
 
@@ -22,6 +26,6 @@
 
         </form>
     </div>
-
-    
+</div>
+ 
 {% endblock %}

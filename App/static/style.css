@@ -3,14 +3,19 @@ body {
     font-family:"Roboto Mono", monospace;
     color: #fff;
     font-size:30px;
+    text-align: center;
   }
 p {
     color: #eggshell transparent;
     font-size: 20px;
 
-}
+ }
   h1 {
     font-family: "Press Start 2P", system-ui;
+  }
+  
+  input:disabled {
+    background-color: #ff4da6;
   }
   
   .glow {
@@ -30,7 +35,7 @@ p {
     }
   }
   
-  .btn {
+  .button2 {
     border-radius: 4px;
     background-color: #2AD2C9;
     border: none;
@@ -46,14 +51,14 @@ p {
   }
       
       
-  .btn span {
+  .button2 span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
   }
   
-  .btn span:after {
+  .button2 span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -62,18 +67,18 @@ p {
     transition: 0.5s;
   }
   
-  .btn:hover span {
+  .button2:hover span {
     padding-right: 25px;
     
     
   }
   
-  .btn:hover span:after {
+  .button2:hover span:after {
     opacity: 1;
     right: 0;
   }
   
-  .glow-btn:hover {
+  .glow-button2:hover {
     color: rgba(255, 255, 255, 1);
     box-shadow: 0 5px 15px rgba(42, 210, 201, 0.8);
   }

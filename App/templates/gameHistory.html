@@ -9,7 +9,8 @@
     <div class="col m3 list-container collection" style="max-height: 88vh;">
         <ul>
     {%for game in user.games %}
-        {%if game.id == id%}
+        {%if game.completed == true%}
+        {%if game.id == id and game.completed == True%}
         <li>
             <a  class = "collection-item active white-text" href = '/playHistory/{{game.id}}'>Game {{game.id}}</a>
         </li> 
@@ -18,12 +19,26 @@
             <a  class = "collection-item  black-text" href = '/playHistory/{{game.id}}'>Game {{game.id}}</a>
         </li>
         {%endif%}
+        {%endif%}
     {%endfor%}
     </ul>
     </div>
 
-    <div>
-        <p>dd</p>
+    <div class = "col m7">
+        {%if game%}
+        {%for i in range(game.guesses)%}
+        <div class="input-field col s12 m12" style = "display: inline-flex;">
+          {%for x in range(4)%} 
+          <div>
+            <input  id = "choice" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled >
+            <datalist >
+            </datalist>
+          </div>
+          {%endfor%}
+          <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
+        </div>
+        {%endfor%}
+       {%endif%}
     </div>
 </div>
 

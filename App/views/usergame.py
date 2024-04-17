@@ -54,3 +54,10 @@ def game_guess(game_id):
     else:
         flash("Incorrect! Guess again")
     return redirect(request.referrer)
+
+@user_game_views.route('/playHistory')
+@user_game_views.route('/playHistory/<int:id>')
+@jwt_required()
+def get_playHistory(id=0):
+    game = get_game_session(id)
+    return render_template('gameHistory.html', user=jwt_current_user,id=id,game=game)

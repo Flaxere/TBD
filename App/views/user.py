@@ -43,9 +43,3 @@ def create_user_endpoint():
 def static_user_page():
   return send_from_directory('static', 'static-user.html')
 
-@user_views.route('/playHistory')
-@user_views.route('/playHistory/<int:id>')
-@jwt_required()
-def get_playHistory(id=0):
-   
-    return render_template('gameHistory.html', user=jwt_current_user,id=id)

@@ -5,6 +5,26 @@
 {{ super() }}
 
 {% block content %}
-    
-    
+<div class = "row">
+    <div class="col m3 list-container collection" style="max-height: 88vh;">
+        <ul>
+    {%for game in user.games %}
+        {%if game.id == id%}
+        <li>
+            <a  class = "collection-item active white-text" href = '/playHistory/{{game.id}}'>Game {{game.id}}</a>
+        </li> 
+        {%else%}
+        <li>
+            <a  class = "collection-item  black-text" href = '/playHistory/{{game.id}}'>Game {{game.id}}</a>
+        </li>
+        {%endif%}
+    {%endfor%}
+    </ul>
+    </div>
+
+    <div>
+        <p>dd</p>
+    </div>
+</div>
+
 {% endblock %}

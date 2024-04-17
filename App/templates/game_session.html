@@ -46,9 +46,12 @@
       
         
     </div>
+  
     <button class="button3 glow-button3"><span>Check</span></button>
-
+  </form>
+  
         {%else%}
+      </form>
         <!--Checks if the game has been completed-->  
         
         {%for i in range(game.guesses)%}
@@ -73,13 +76,16 @@
       {%else%}
       <h3>GAME OVER....</h3>
       {%endif%}
-      {%endif%}
+      <form action = "/start_game/{{game.game_id}}" >
+        <button class="button3 glow-button3"><span style='color:bisque'>Play Again</span></button>
+     </form>
+      {%endif%} 
       
       </div>
       
 
      
-    </form>
+    
 
     
      

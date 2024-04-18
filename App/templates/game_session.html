@@ -24,7 +24,7 @@
             </datalist>
           </div>
           {%endfor%}
-         &nbsp; <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
+         &nbsp; <p><span style='color:#2BAF90'> Bulls: {{game.attempts[(i * 6)]}}&nbsp;</span> <span style='color: #F1A512'>&nbsp;Cows: {{game.attempts[((i * 6 )+ 1)]}} </span></p>
         </div>
         {%endfor%}
         <div class="input-field col s12 m12" style = "display: inline-flex;">
@@ -39,7 +39,6 @@
            
         </div>
         {%endfor%}
-          &nbsp; <p> Bulls : {{game.bulls}} Cows : {{game.cows}}</p>
           </div>
       </div>
       
@@ -74,7 +73,7 @@
             </datalist>
           </div>
           {%endfor%}
-          &nbsp;<p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
+          &nbsp; <p><span style='color:#2BAF90'> Bulls: {{game.attempts[(i * 6)]}}&nbsp;</span> <span style='color: #F1A512'>&nbsp;Cows: {{game.attempts[((i * 6 )+ 1)]}} </span></p>
         </div>
         {%endfor%}
        

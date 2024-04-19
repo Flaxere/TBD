@@ -53,6 +53,12 @@ def guess_code(guessed_code,id,):
     if(bullCows.get('Bulls') == 4):
         uGame.completed = True
         uGame.result = True
-
+    else:
+        uGame.insult=uGame.generateInsult()
+        print (uGame.insult)
     db.session.commit()
     return bullCows
+
+def getInsult(id):
+    uGame = UserGame.query.filter_by(id=id).first()
+    return uGame.insult

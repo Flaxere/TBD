@@ -11,7 +11,7 @@
     <h1 class = "glow">Bulls and Cows</h1>
     {% if is_authenticated %}
     <br>
-        <p> Are you ready {{current_user.username}}?</p>
+        <h3> Are you ready {{current_user.username}}?</h3>
     {% endif %}
 
     <div style = "display: inline-flex">
@@ -22,7 +22,7 @@
         </form>
 
         <form action = "/playHistory">
-            <button class="button2 glow-button2"><i class="material-icons">history</i></button>
+            <button class="button2 glow-button2" title="history"><i class="material-icons">history</i></button>
 
         </form>
     </div>

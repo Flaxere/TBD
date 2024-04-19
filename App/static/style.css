@@ -24,12 +24,16 @@ p {
     text-align: left;
   }
   
+  h3 {
+    font-family: "VT323", system-ui;
+    text-align: left;
+  }
   
   input:disabled {
     color: #ff4da6;
   }
   
-
+ 
   .glow {
     font-size: 60px;
     color: #fff;
@@ -81,13 +85,12 @@ p {
   
   .button2:hover span {
     padding-right: 25px;
-    
-    
   }
   
   .button2:hover span:after {
     opacity: 1;
     right: 0;
+
   }
   
   .glow-button2:hover {
@@ -128,7 +131,6 @@ p {
   
   .button:hover span {
     padding-right: 25px;
-    
     
   }
   

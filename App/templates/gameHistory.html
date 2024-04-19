@@ -7,17 +7,17 @@
 {% block content %}
 
 <div class = "row">
-    <section class="col s12 m3" style="margin-top: 5px; overflow-y:scroll; height: 86vh">
-        <ul class="collection">
+    <section class="col s12 m2" style="margin-top: 5px; overflow-y:scroll; height: 100vh; scrollbar-width: thin">
+        <ul style = "background-color: #301934; border-color: #301934;" class="collection">
             {%for i in range(user.games|length) %}
             {%if user.games[i].completed == true%}
             {%if user.games[i].id == id and user.games[i].completed == True%}
             <li>
-                <a  class = "collection-item active white-text" href = '/playHistory/{{user.games[i].id}}'>Game {{i+1}}</a>
+                <a style="background-color: #301934;" class = "collection-item active green-text" href = '/playHistory/{{user.games[i].id}}'>Game {{i+1}}</a>
             </li> 
             {%else%}
             <li>
-                <a  class = "collection-item  black-text" href = '/playHistory/{{user.games[i].id}}'>Game {{i+1}}</a>
+                <a  style="background-color: #301934;" class = "collection-item  yellow-text" href = '/playHistory/{{user.games[i].id}}'>Game {{i+1}}</a>
             </li>
             {%endif%}
             {%endif%}
@@ -29,7 +29,7 @@
     
    
 
-    <div class = "col m7">
+    <div class = "col m9">
         {%if game%}
         {%for i in range(game.guesses)%}
         <div class="input-field col s12 m12" style = "display: inline-flex;">
@@ -40,11 +40,12 @@
             </datalist>
           </div>
           {%endfor%}
-          <p>Bulls : {{game.attempts[(i * 6)]}} Cows : {{game.attempts[((i * 6 )+ 1)]}}</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#2BAF90'>Bulls: {{game.attempts[(i * 6)]}}</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span style='color: #F1A512'>Cows: {{game.attempts[((i * 6 )+ 1)]}}</span></p>
+
         </div>
         {%endfor%}
        {%endif%}
     </div>
 </div>
 
-{% endblock %}x
+{% endblock %}

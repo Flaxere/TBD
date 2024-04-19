@@ -11,7 +11,7 @@ body {
 p {
     color: #eggshell transparent;
     font-size: 20px;
-    text-align: justify;
+    text-align: left;
 
  }
 
@@ -33,7 +33,7 @@ p {
     color: #ff4da6;
   }
   
- 
+  
   .glow {
     font-size: 60px;
     color: #fff;
@@ -203,3 +203,6 @@ p {
     border-style: solid;
   }
 
+  ul{
+    font-family: "Electrolize", sans-serif;
+  }

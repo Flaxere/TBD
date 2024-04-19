@@ -1,6 +1,6 @@
 {% extends "listLayout.html" %}
 {% block title %}Bulls and Cows{% endblock %}
-{% block page %}TBD{% endblock %}
+{% block page %}Bulls and Cows{% endblock %}
 
 {{ super() }}
 
@@ -40,7 +40,7 @@
             </datalist>
           </div>
           {%endfor%}
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#2BAF90'>Bulls: {{game.attempts[(i * 6)]}}</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span style='color: #F1A512'>Cows: {{game.attempts[((i * 6 )+ 1)]}}</span></p>
+          &nbsp;<p style="text-align: center; vertical-align: top;  display: inline-flex;"><span style='color:#d6312f'>Bulls: {{game.attempts[(i * 6)]}}</span> <span style='color: #82e6c2'>Cows: {{game.attempts[((i * 6 )+ 1)]}}</span></p>
 
         </div>
         {%endfor%}

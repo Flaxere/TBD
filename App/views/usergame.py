@@ -7,6 +7,7 @@ from App.controllers import (
     create_game_session,
     get_game_session,
     guess_code,
+    getInsult,
     jwt_required
 )
 
@@ -52,7 +53,7 @@ def game_guess(game_id):
         print("victory")
         flash("Victory")
     else:
-        flash("Incorrect! Guess again")
+        flash(getInsult(game_id))
     return redirect(request.referrer)
 
 @user_game_views.route('/playHistory')

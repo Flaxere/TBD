@@ -14,20 +14,20 @@ auth_views = Blueprint('auth_views', __name__, template_folder='../templates')
 '''
 Page/Action Routes
 '''    
-@auth_views.route('/users', methods=['GET'])
+@auth_views.route('/signup', methods=['GET'])
 def get_user_page():
-    users = get_all_users()
-    return render_template('users.html', users=users)
+    
+    return render_template('signup.html')
 
 @auth_views.route('/identify', methods=['GET'])
 @jwt_required()
 def identify_page():
     return render_template('message.html', title="Identify", message=f"You are logged in as {current_user.id} - {current_user.username}")
    
-@auth_views.route('/game', methods=['GET'])
-def get_game():
-    print("ddd")
-    return render_template('gamePage.html')
+@auth_views.route('/login', methods=['GET'])
+def log():
+        return render_template('login.html')
+
 @auth_views.route('/login', methods=['POST'])
 def login_action():
     data = request.form
@@ -35,6 +35,7 @@ def login_action():
     response = redirect(request.referrer)
     if not token:
         flash('Bad username or password given'), 401
+        return response
     else:
         flash('Login Successful')
         set_access_cookies(response, token) 

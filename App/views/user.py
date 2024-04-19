@@ -7,24 +7,26 @@ from App.controllers import (
     create_user,
     get_all_users,
     get_all_users_json,
+    login,
     jwt_required
 )
 
 user_views = Blueprint('user_views', __name__, template_folder='../templates')
 
-@user_views.route('/users', methods=['GET'])
-@jwt_required()
+@user_views.route('/signup', methods=['GET'])
 def get_user_page():
-    users = get_all_users()
-    return render_template('users.html', users=users)
+    return render_template('signup.html')
 
-@user_views.route('/users', methods=['POST'])
-@jwt_required()
+@user_views.route('/signup', methods=['POST'])
 def create_user_action():
     data = request.form
-    flash(f"User {data['username']} created!")
-    create_user(data['username'], data['password'])
-    return redirect(url_for('user_views.get_user_page'))
+    temp = get_user_page
+    user = create_user(data['username'], data['password'])
+    if user:
+        flash(f"User {data['username']} created!")
+        return redirect(url_for('index_views.index_page'))
+    flash(f"The username {data['username']} has already been taken!")
+    return redirect(request.referrer)
 
 @user_views.route('/api/users', methods=['GET'])
 @jwt_required()

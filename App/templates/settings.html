@@ -9,7 +9,7 @@
     
     
     <p ><span style="text-align: left;">Change Username</span></p>
-    <form action = "/changeUsername/{{user.id}}" style="display: flex; flex-wrap: nowrap; align-items: center; margin-right: 10px;" method="post">
+    <form action = "/changeUsername" style="display: flex; flex-wrap: nowrap; align-items: center; margin-right: 10px;" method="post">
         
         <div class="input-field"> 
             <input placeholder="username" name="username" type="text" size="62" class="validate" required>
@@ -19,7 +19,7 @@
         <button class="btn-large"><span>Change Username</span></button>
     </form>
     <p ><span style="text-align: left;">Change Password</span></p>
-    <form action = "/changePassword/{{user.id}}" style="display: flex; align-items: center; margin-right: 10px;" method="post">
+    <form action = "/changePassword" style="display: flex; align-items: center; margin-right: 10px;" method="post">
         
         <div class="input-field"> 
             <input placeholder="password" name="password1" type="password" size="25" class="validate" required>
@@ -50,7 +50,7 @@
         <body>
         
         <div class="form-popup" id="myForm" name = "myForm">
-            <form action = "/deleteAccount/{{user.id}}" method="get">
+            <form action = "/deleteAccount" method="get">
                 <p ><span style="text-align: left;">Are you Sure you want to delete your account?</span></p>
                 <button type="button" class="open-button btn-large green" onclick="closeForm()">NO</button>
                 <button onclick="openForm()"class="open-button btn-large red"><span>YES</span></button>    

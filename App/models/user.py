@@ -6,7 +6,7 @@ class User(db.Model):
     username =  db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String(120), nullable=False)
     games_played = db.Column(db.Integer)
-    
+    games = db.relationship('UserGame')
 
     def __init__(self, username, password):
         self.username = username

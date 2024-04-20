@@ -8,6 +8,7 @@ from App.controllers import (
     get_all_users,
     get_user,
     delete_user,
+    delete_games,
     rename_user,
     change_password,
     get_all_users_json,
@@ -69,7 +70,9 @@ def del_user(id):
     user = get_user(id)
     name = user.username
     test = delete_user(id)
+   
     if(test):
+        test2= delete_games(id)
         flash(f"User {name} deleted...")
     else:
         flash(f"User {name} could not be deleted")

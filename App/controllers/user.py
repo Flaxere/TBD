@@ -17,6 +17,7 @@ def delete_user(id):
         db.session.commit()
         return True
     except Exception:
+        db.session.rollback()
         return False
 
 def rename_user(id,newName):
@@ -26,6 +27,7 @@ def rename_user(id,newName):
         db.session.commit()
         return True
     except Exception:
+        db.session.rollback()
         return False
     
 def change_password(id,newPass):
@@ -35,6 +37,7 @@ def change_password(id,newPass):
         db.session.commit()
         return True
     except Exception:
+        db.session.rollback()
         return False
    
 def get_user_by_username(username):

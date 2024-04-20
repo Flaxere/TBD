@@ -16,7 +16,15 @@ def get_game_session(id):
     session = UserGame.query.filter_by(id=id).first()
     return session
     
-
+def delete_games(id):
+    session = UserGame.query.filter_by(id=id).first()
+    try:
+        db.session.delete(session)
+        db.session.commit()
+        return True
+    except Exception:
+        db.session.rollback()
+        return False
 def guess_code(guessed_code,id,):
     uGame = UserGame.query.filter_by(id=id).first()
     bullCows = {

@@ -34,14 +34,22 @@
               </ul>
               {% if is_authenticated %}
               <ul id="nav-mobile" class="right">
+                
                 <li><a href="/logout">Logout</a></li>
               </ul>
               {% else %}
               <form class="right navbar-form" method="get" action="/signup" style="display: flex; flex-wrap: nowrap; align-items: center; margin-right: 10px;">
                 <button type="submit" class="btn waves-effect waves-light">Signup</button>
 
-              </form>
-              <form class="right navbar-form" method="get" action="/login" style="display: flex; flex-wrap: nowrap; align-items: center; margin-right: 10px;">
+                <form class="right navbar-form" method="POST" action="/login" style="display: flex; flex-wrap: nowrap; align-items: center; margin-right: 10px;">
+                  <div class="input-field" style="margin-right: 10px;">
+                      <input placeholder="username" name="username" type="text" size="10" class="validate" required>
+                      <label for="username">username</label>
+                  </div>
+                  <div class="input-field" style="margin-right: 10px;">
+                      <input placeholder="password" name="password" size ="10" type="password" class="validate" required>
+                      <label for="password">Password</label>
+                  </div>
                   <button type="submit" class="btn waves-effect waves-light">Login</button>
               </form>
               {% endif %}

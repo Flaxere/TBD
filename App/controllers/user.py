@@ -10,6 +10,33 @@ def create_user(username, password):
     except Exception:
         return None
 
+def delete_user(id):
+    try:
+        user = get_user(id)
+        db.session.delete(user)
+        db.session.commit()
+        return True
+    except Exception:
+        return False
+
+def rename_user(id,newName):
+    try:
+        user = get_user(id)
+        user.username = newName
+        db.session.commit()
+        return True
+    except Exception:
+        return False
+    
+def change_password(id,newPass):
+    try:
+        user = get_user(id)
+        user.set_password(newPass)
+        db.session.commit()
+        return True
+    except Exception:
+        return False
+   
 def get_user_by_username(username):
     return User.query.filter_by(username=username).first()
 

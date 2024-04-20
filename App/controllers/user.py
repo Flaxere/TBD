@@ -8,6 +8,7 @@ def create_user(username, password):
         db.session.commit()
         return newuser
     except Exception:
+        db.session.rollback()
         return None
 
 def delete_user(id):

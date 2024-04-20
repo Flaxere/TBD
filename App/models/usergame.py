@@ -11,7 +11,6 @@ class UserGame(db.Model):
   bulls = db.Column(db.Integer)
   cows = db.Column(db.Integer)
   attempts = db.Column(db.String(120))
-  game = db.relationship('Game')
   insult = db.Column(db.String(120))
   
   def __init__(self, user_id, game_id):

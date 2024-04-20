@@ -69,10 +69,10 @@ def del_user(id):
         return redirect(url_for('index_views.index_page'))
     user = get_user(id)
     name = user.username
-    test = delete_user(id)
+    test = delete_games(id)
    
     if(test):
-        test2= delete_games(id)
+        test2= delete_user(id)
         flash(f"User {name} deleted...")
     else:
         flash(f"User {name} could not be deleted")

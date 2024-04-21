@@ -2,12 +2,14 @@ from App.models import User
 from App.database import db
 
 def create_user(username, password):
+    
     try:
         newuser = User(username=username, password=password)
         db.session.add(newuser)
         db.session.commit()
         return newuser
     except Exception:
+        print("FAILURE")
         db.session.rollback()
         return None
 
@@ -65,3 +67,23 @@ def update_user(id, username):
         return db.session.commit()
     return None
     
+def daily_reset():
+    user = User.query.all()
+    if user:
+        try:
+            for u in user:
+                u.dailyGame = True
+            db.session.commit()
+            return True
+        except Exception:
+            return False
+    return False
+
+def daygame_played(id):
+    user = get_user(id)
+    try:
+        user.dailyGame = False
+        db.session.commit()
+        return True
+    except Exception:
+        return False

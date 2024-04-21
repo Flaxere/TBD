@@ -12,8 +12,8 @@ def create_game_session(userID,gameID):
     print("DODO")
     return new_session
 
-def get_game_session(id):
-    session = UserGame.query.filter_by(id=id).first()
+def get_game_session(id,user_id):
+    session = UserGame.query.filter_by(id=id,user_id=user_id).first()
     return session
     
 def delete_games(id):

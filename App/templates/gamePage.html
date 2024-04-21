@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}Bulls and Cows{% endblock %}
-{% block page %}Bulls and Cows{% endblock %}
+{% block page %}BULLS AND COWS{% endblock %}
 
 {{ super() }}
 
@@ -10,13 +10,12 @@
         <p> The number to be guessed must be a <span style='color:blueviolet'>4 digit number,</span> using only digits from <span style='color:blueviolet'>1 - 9</span> </p>
         <p> <span style='color:blueviolet'>No </span> digit is allowed to be  <span style='color:blueviolet'>repeated</span> </p>
         <p> For every guess that the player makes, he gets <span style='color:blueviolet'>2 values </span> - the number of <span style='color:blueviolet'> bulls </span> and the number of <span style='color:blueviolet'>cows</span> </p>
-        <p> <span style="color:blueviolet"> 1 bull </span> means the <span style="color:bisque"> guess and target number </span> have 1 digit in common, and in the correct position. </p> 
-        <p> 1 cow means the guess and the target have 1 digit in common, but not in correct position. 
-        <p> e.g. Let the target be 1234. Guessing 4321 will give 0 bulls and 4 cows. 3241 will give 1 bull and 3 cows.</p>
-        <p> The player gets <span style='color:bisque'>10 chances</span> to correctly guess the entire number. </p>
-        <p>The game is current on code {{gameid}} </p>
-        <p> Are you ready <span style="text-transform:capitalize">{{current_user.username}}</span>?</p>
-        <form action = "/start_game" >
+        <p> <span style="color:blueviolet"> 1 bull </span> means the <span style="color:bisque"> guess and target number </span> have <span style='color: paleturquoise'> 1 digit in common,</span> and in the <span style='color: palevioletred'> correct position. </span> </p> 
+        <p> <span style="color: blueviolet"> 1 cow </span> means the guess and the target have <span style='color: paleturquoise'> 1 digit in common </span>, but <span style='color: palevioletred'> not in correct position. </span></p>
+        <p><span style='color: bisque'> e.g. Let the target be 1234. Guessing 4321 will give 0 bulls and 4 cows. 3241 will give 1 bull and 3 cows.</span></p>
+        <p> The player gets <span style='color:palegreen'>10 chances</span> to correctly guess the entire number. </p>
+        <h3> Are you ready, <span style="text-transform:capitalize">{{current_user.username}}</span>?</h3>
+        <form action = "/start_game" method="GET" >
             <button class="button3 glow-button3"><span style='color:bisque'>Begin</span></button>
         </form>
     {% endif %}

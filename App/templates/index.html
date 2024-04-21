@@ -5,25 +5,22 @@
 {{ super() }}
 
 {% block content %}
-<h2 style="text-align: left"> <span style="text-align: left;"> TBD Presents...</span></h2>
+<p style="text-align: left"> <span style="text-align: left; font-family: Silkscreen, sans-serif;"> TBD Presents...</span></p>
 <div class="container">
-    <br> 
-    <h1 class = "glow">Bulls and Cows</h1>
-    {% if is_authenticated %}
     <br>
-        <h3> Are you ready <span style="text-transform:capitalize">{{current_user.username}}</span> ?</h3>
+    <h1 class = "glo">Bulls and Cows</h1>
+    {% if is_authenticated %}
+
+        <h3> Are you ready <span style="text-transform:capitalize">{{current_user.username}}</span>?</h3>
     {% endif %}
 
     <div style = "display: inline-flex">
         <form action = "/game">
             <button class="button glow-button"><span>Start</span></button>
-            
-
         </form>
 
         <form action = "/playHistory">
             <button class="button2 glow-button2" title="history"><i class="material-icons">history</i></button>
-
         </form>
         
     </div>

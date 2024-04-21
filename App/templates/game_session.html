@@ -5,15 +5,13 @@
 {{ super() }}
 
 {% block content %}
-    <p>{{game.game.code}}</p>
-    
     <div class = "row">
     <form action = '/usergame/play/guess/{{game.id}}' method = 'POST'>
     <div class="input-field col s12 m12" style = "display: inline-flex; flex-direction: column;">
        <!--Checks if the game is still ongoing -->
         {%if game.completed == False%}
         <!--Prints previous guesses-->
-        <p>Tries Remaining:  {{10 -game.guesses}}</p>
+        <p style="color:rgb(158, 88, 223)">Tries remaining:  {{10 -game.guesses}}</p>
         {%for i in range(game.guesses)%}
         <div>
         <div class="input-field col s12 m12" style = "display: inline-flex;">
@@ -25,9 +23,9 @@
           </div>
           {%endfor%}
           <p>&ensp;</p>
-          <p style="text-align: center;  line-height: 10px;">Bulls:{{game.attempts[(i * 6)]}}</p>
+          <p style="text-align: center;  line-height: 10px; color:rgb(48, 212, 48);">Bulls:{{game.attempts[(i * 6)]}}</p>
           <p> &ensp;</p>
-          <p style="text-align: center; line-height: 10px;"> Cows:{{game.attempts[((i * 6 )+ 1)]}} </p>
+          <p style="text-align: center; line-height: 10px; color:firebrick;"> Cows:{{game.attempts[((i * 6 )+ 1)]}} </p>
         </div>
         {%endfor%}
         <div class="input-field col s12 m12" style = "display: inline-flex;">
@@ -41,7 +39,6 @@
             </datalist>
         
         </div>
-
         {%endfor%}
           </div>
           
@@ -60,12 +57,14 @@
         {%if game.result == True%}
         <h1 class = "glow">VICTORY!</h1>
           {%if game.guesses == 1%}
-            <p> You got it in {{game.guesses}} attempt!</p>
+            <p> You got it in <span style='color: seagreen'>{{game.guesses}} </span> attempt!</p>
             {%else%}
-            <p> You got it in {{game.guesses}} attempts!</p>
+            <p> You got it in <span style='color: seagreen'>{{game.guesses}} </span> attempts!</p>
             {%endif%}
         {%else%}
         <h1 class = "glow">GAME OVER...</h3>
+          <p> The code was <span style='color:#12B8FF'>{{game.game.code}}</span>. Try again tomorrow!!</p>
+
         {%endif%}
 
         {%for i in range(game.guesses)%}
@@ -79,19 +78,23 @@
           </div>
           {%endfor%}
         <p>&ensp;</p>
-        <p style="text-align: center;  line-height: 10px;">Bulls:{{game.attempts[(i * 6)]}}</p>
+        <p style="text-align: center;  line-height: 10px; color: rgb(255, 131, 23);">Bulls:{{game.attempts[(i * 6)]}}</p>
         <p> &ensp;</p>
-        <p style="text-align: center; line-height: 10px;"> Cows:{{game.attempts[((i * 6 )+ 1)]}} </p>
+        <p style="text-align: center; line-height: 10px; color: rgb(24, 228, 255);"> Cows:{{game.attempts[((i * 6 )+ 1)]}} </p>
         </div>
         {%endfor%}
        
         <br>
       </div>
-      <form action = "/start_game/{{game.game_id}}" >
-        <button class="button3 glow-button3"><span style='color:bisque'>Play Again</span></button>
+  <div style = "display: inline-flex;">
+      <form action = "/">
+      &ensp;&ensp;<button class="button"><span style='color:bisque'>Home</span></button>
      </form>
+     <form action = "/playHistory">
+      <button class="button3"><span style='color:bisque'>History</span></button>
+   </form>
       {%endif%} 
-      
+  </div> 
       </div>
       
 

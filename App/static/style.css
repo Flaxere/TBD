@@ -33,6 +33,13 @@ p {
   }
   
   
+  
+  .glo {
+    font-size: 60px;
+    color: #fff;
+    text-align: center;
+    animation: glow 2s linear infinite alternate;
+  }
   .glow {
     font-size: 60px;
     color: #fff;
@@ -196,6 +203,9 @@ p {
     font-family:"Silkscreen", sans-serif;
   }
 
+  div.input-field{
+    color:bisque !important;
+  }
   #current-choice {
     color:whitesmoke;
     background-color:rgba(241, 148, 6, 1);
@@ -215,8 +225,8 @@ p {
   a.brand-logo.center{
     font-family: "Press Start 2P", system-ui;
     font-size: 85%;
-    text-shadow: 2px 2px #FFFDD0;
-    color: rgb(137, 25, 188) ;
+    text-shadow: 2px 2px #654a01;
+    color: #FFFF00 ;
 
   }
   ul{

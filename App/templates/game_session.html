@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}Session{% endblock %}
-{% block page %}Bulls and Cows{% endblock %}
+{% block page %}BULLS AND COWS{% endblock %}
 
 {{ super() }}
 
@@ -24,7 +24,6 @@
             </datalist>
           </div>
           {%endfor%}
-          <p><span style="color: #301934;">|</span></p>
           <p>&ensp;</p>
           <p style="text-align: center;  line-height: 10px;">Bulls:{{game.attempts[(i * 6)]}}</p>
           <p> &ensp;</p>
@@ -79,7 +78,6 @@
             </datalist>
           </div>
           {%endfor%}
-        <p><span style="color: #301934;">|</span></p>
         <p>&ensp;</p>
         <p style="text-align: center;  line-height: 10px;">Bulls:{{game.attempts[(i * 6)]}}</p>
         <p> &ensp;</p>

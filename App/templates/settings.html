@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}Bulls and Cows{% endblock %}
-{% block page %}Bulls and Cows{% endblock %}
+{% block page %}BULLS AND COWS{% endblock %}
 
 {{ super() }}
 
@@ -12,35 +12,31 @@
     <form action = "/changeUsername" style="display: flex; flex-wrap: nowrap; align-items: center; margin-right: 10px;" method="post">
         
         <div class="input-field"> 
-            <input placeholder="username" name="username" type="text" size="62" class="validate" required>
-            <label for="username">username</label>     
+            <input style="font-family:Pixelify Sans, sans-serif" placeholder="username" name="username" type="text" size="62" class="validate" required>
         </div>
-        &#20;
-        <button class="btn-large"><span>Change Username</span></button>
+    &ensp;
+        <button class="btn-large"><span style="font-family:Silkscreen, sans-serif">Change Username</span></button>
     </form>
     <p ><span style="text-align: left;">Change Password</span></p>
     <form action = "/changePassword" style="display: flex; align-items: center; margin-right: 10px;" method="post">
         
         <div class="input-field"> 
-            <input placeholder="password" name="password1" type="password" size="25" class="validate" required>
-            <label for="password1">password</label>     
+            <input style="font-family:Pixelify Sans, sans-serif" placeholder="password" name="password1" type="password" size="25" class="validate" required>
             
         </div>
-        &#20; &#20;
+        &ensp; &ensp; &nbsp; &ensp; &ensp;
         <div class="input-field"> 
-            <input placeholder="password" name="password2" type="password" size="25" class="validate" required>
-            <label for="password2">password</label>     
-            
+            <input style="font-family:Pixelify Sans, sans-serif" placeholder="re-enter password" name="password2" type="password" size="25" class="validate" required >            
         </div>
 
-        &#20;
+        &ensp;&ensp;
        
-        <button class="btn-large"><span>Change Password</span></button>
+        <button class="btn-large"><span style="font-family:Silkscreen, sans-serif">Change Password</span></button>
     </form>
     <p ><span style="text-align: left;">Delete Account</span></p>
     <div>
         <div style="display: flex; align-items: center; margin-right: 10px;">
-            <button onclick="openForm()"class=" btn-large red"><span>Delete Account</span></button>    
+            <button onclick="openForm()"class=" btn-large red"><span style="font-family:Silkscreen, sans-serif">Delete Account</span></button>    
         </div>
         
     </div>
@@ -49,11 +45,12 @@
         </head>
         <body>
         
-        <div class="form-popup" id="myForm" name = "myForm">
+        <div class="form-popup" id="myForm" name = "myForm" style="border-color:#301934">
             <form action = "/deleteAccount" method="get">
-                <p ><span style="text-align: left;">Are you Sure you want to delete your account?</span></p>
-                <button type="button" class="open-button btn-large green" onclick="closeForm()">NO</button>
-                <button onclick="openForm()"class="open-button btn-large red"><span>YES</span></button>    
+                <p ><span style="text-align: left;">Are you sure you want to delete your account?</span></p>
+                <button onclick="openForm()"class="open-button btn-large red"><span style="font-family:Silkscreen, sans-serif">YES</span></button>   
+                <button type="button" class="open-button btn-large" onclick="closeForm()"><span style="font-family:Silkscreen, sans-serif">NO</span></button>
+ 
             </form>
             <br>
         </div>

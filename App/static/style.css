@@ -1,10 +1,9 @@
 body {
     background-color: #301934;
-    font-family:"Roboto Mono", monospace;
+    font-family:"Pixelify Sans", sans-serif;
     color: #fff;
     font-size:30px;
     text-align: center;
-   
     overflow: auto;
   }
 
@@ -51,6 +50,10 @@ p {
     }
   }
   
+  .basic{
+    font-family: "Silkscreen", sans-serif;
+  }
+
   .button2 {
     border-radius: 4px;
     background-color: #2AD2C9;
@@ -183,13 +186,14 @@ p {
 
   #choice {
     color: wheat !important;
-    background-color: rgba(233, 60, 172, .25);
+    background-color: #5e2252;
     text-align: center;
     font-size: 17px;
     border-color: rgba(233, 60, 172, 1);
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
+    font-family:"Silkscreen", sans-serif;
   }
 
   #current-choice {
@@ -201,26 +205,35 @@ p {
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
-  }
+    font-family:"Silkscreen", sans-serif;
 
+  }
+  ul#nav-mobile {
+    font-family:"Silkscreen", sans-serif;
+    font-size: 25%;
+  }
+  a.brand-logo.center{
+    font-family: "Press Start 2P", system-ui;
+    font-size: 85%;
+    text-shadow: 2px 2px #FFFDD0;
+    color: rgb(137, 25, 188) ;
+
+  }
   ul{
-    font-family: "Electrolize", sans-serif;
+    font-family: "Silkscreen", sans-serif;
   }
 
    /* Button used to open the contact form - fixed at the bottom of the page */
    .open-button {
-    background-color: #555;
+    background-color: #FFFFFF;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
     opacity: 0.8;
-   
-   
     width: 280px;
   }
   
-  /* The popup form - hidden by default */
   .form-popup {
     display: none;
     position: relative;
@@ -228,14 +241,13 @@ p {
     z-index: 9;
   }
   
-  /* Add styles to the form container */
   .form-container {
     max-width: 300px;
     padding: 10px;
     background-color: white;
   }
   
-  /* Full-width input fields */
+
   .form-container input[type=text], .form-container input[type=password] {
     width: 100%;
     padding: 15px;
@@ -244,13 +256,11 @@ p {
     background: #f1f1f1;
   }
   
-  /* When the inputs get focus, do something */
-  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    .form-container input[type=text]:focus, .form-container input[type=password]:focus {
     background-color: #ddd;
     outline: none;
   }
   
-  /* Set a style for the submit/login button */
   .form-container .btn {
     background-color: #04AA6D;
     color: white;

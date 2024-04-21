@@ -11,7 +11,7 @@
     <h1 class = "glow">Bulls and Cows</h1>
     {% if is_authenticated %}
     <br>
-        <h3> Are you ready {{current_user.username}}?</h3>
+        <h3> Are you ready <span style="text-transform:capitalize">{{current_user.username}}</span> ?</h3>
     {% endif %}
 
     <div style = "display: inline-flex">

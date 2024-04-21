@@ -40,8 +40,11 @@
             </datalist>
           </div>
           {%endfor%}
-          &nbsp;<p style="text-align: center; vertical-align: top;  display: inline-flex;"><span style='color:#d6312f'>Bulls: {{game.attempts[(i * 6)]}}</span> <span style='color: #82e6c2'>Cows: {{game.attempts[((i * 6 )+ 1)]}}</span></p>
-
+        <p><span style="color: #301934;">|</span></p>
+        <p>&ensp;</p>
+        <p style="text-align: center;  line-height: 10px;">Bulls:{{game.attempts[(i * 6)]}}</p>
+        <p> &ensp;</p>
+        <p style="text-align: center; line-height: 10px;"> Cows:{{game.attempts[((i * 6 )+ 1)]}} </p>
         </div>
         {%endfor%}
        {%endif%}

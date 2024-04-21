@@ -49,6 +49,9 @@ def game_guess(game_id):
     for i in range(4):
         str +=data[f'n{i}']
     unique = 0  
+    if str == '6969':
+        flash ("Baka!! Pervert!! HENTAI!!")
+        return redirect(request.referrer)
     for ch in str:
         if ch >= "0" and ch <= "9":
             for i in range(4):

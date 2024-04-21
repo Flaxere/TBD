@@ -11,7 +11,7 @@
        <!--Checks if the game is still ongoing -->
         {%if game.completed == False%}
         <!--Prints previous guesses-->
-        <p style="color:rgb(158, 88, 223)">Tries remaining:  {{10 -game.guesses}}</p>
+        <p style="color:rgb(189, 119, 255)">Tries remaining:  {{10 -game.guesses}}</p>
         {%for i in range(game.guesses)%}
         <div>
         <div class="input-field col s12 m12" style = "display: inline-flex;">

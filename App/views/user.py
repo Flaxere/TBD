@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request, send_from_directory, flash, redirect, url_for
-from flask_jwt_extended import jwt_required, current_user as jwt_current_user
+from flask_jwt_extended import jwt_required, current_user as jwt_current_user,set_access_cookies
 
 from.index import index_views
 
@@ -30,8 +30,11 @@ def create_user_action():
         return redirect(request.referrer)
     user = create_user(data['username'], data['password'])
     if user:
+        token = login(data['username'], data['password'])
+        response = redirect(url_for('index_views.index_page'))
+        set_access_cookies(response, token)
         flash(f"User {data['username']} created!")
-        return redirect(url_for('index_views.index_page'))
+        return response
     flash(f"The username {data['username']} has already been taken!")
     return redirect(request.referrer)
 

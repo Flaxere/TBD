@@ -10,8 +10,13 @@
     <br>
     <h1 class = "glo">Bulls and Cows</h1>
     {% if is_authenticated %}
-
+        <br>
+        {%if current_user.username == 'Munsta' %}
+        <h3> Are you ready one of one, KING of kings, GOON OF GOONS...  <span style="text-transform:capitalize">{{current_user.username}}</span> ?</h3>
+        {%else%}
         <h3> Are you ready <span style="text-transform:capitalize">{{current_user.username}}</span>?</h3>
+        {%endif%}
+        
     {% endif %}
 
     <div style = "display: inline-flex">

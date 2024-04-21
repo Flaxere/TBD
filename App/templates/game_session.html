@@ -17,7 +17,7 @@
         <div class="input-field col s12 m12" style = "display: inline-flex;">
           {%for x in range(4)%} 
           <div>
-            <input id = "choice" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled>
+            <input id = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled>
             <datalist>
             </datalist>
           </div>
@@ -31,8 +31,8 @@
         <div class="input-field col s12 m12" style = "display: inline-flex;">
         {%for i in range(0,4)%}
         <div style="align-items: center;">
-          <input id = "current-choice" name="n{{i}}" maxlength="1" >
-            <datalist id="choice" >
+          <input list = "cho" id = "current-choice" name="n{{i}}" maxlength="1" >
+            <datalist id="cho" >
               {%for x in range(0,10)%}
               <option value="{{x}}">
               {%endfor%}
@@ -72,7 +72,7 @@
         <div class="input-field col s12 m12" style = "display: inline-flex;">
           {%for x in range(4)%} 
           <div style>
-            <input id = "choice" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled >
+            <input id = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled >
             <datalist >
             </datalist>
           </div>

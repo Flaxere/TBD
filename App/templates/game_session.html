@@ -22,16 +22,19 @@
             <input id = "choice" list = "choice" value = "{{game.attempts[(i * 6) + 2 + x]}}"  disabled>
             <datalist>
             </datalist>
-            <p><span style='color:#301934'>.</span> </p>
           </div>
           {%endfor%}
-         <p style="text-align: right;"><span style='color:#2BAF90'> Bulls: {{game.attempts[(i * 6)]}}</span> <span style='color: #F1A512'>Cows: {{game.attempts[((i * 6 )+ 1)]}} </span></p>
+          <p><span style="color: #301934;">|</span></p>
+          <p>&ensp;</p>
+          <p style="text-align: center;  line-height: 10px;">Bulls:{{game.attempts[(i * 6)]}}</p>
+          <p> &ensp;</p>
+          <p style="text-align: center; line-height: 10px;"> Cows:{{game.attempts[((i * 6 )+ 1)]}} </p>
         </div>
         {%endfor%}
         <div class="input-field col s12 m12" style = "display: inline-flex;">
         {%for i in range(0,4)%}
-        <div>
-          <input id = "current-choice" name="n{{i}}" value = "{{game.attempts[game.attempts|length-4+i]}}"  maxlength="1" >
+        <div style="align-items: center;">
+          <input id = "current-choice" name="n{{i}}" maxlength="1" >
             <datalist id="choice" >
               {%for x in range(0,10)%}
               <option value="{{x}}">
@@ -41,7 +44,6 @@
         </div>
 
         {%endfor%}
-        <p style='text-align: right; color:#301934'> hiiii bulls moo</p>
           </div>
           
       </div>
@@ -77,12 +79,15 @@
             </datalist>
           </div>
           {%endfor%}
-         &nbsp;<p><span style='color:#2BAF90'> Bulls: {{game.attempts[(i * 6)]}}</span> &nbsp;  &nbsp; <span style='color: #F1A512'>Cows: {{game.attempts[((i * 6 )+ 1)]}} </span></p>
+        <p><span style="color: #301934;">|</span></p>
+        <p>&ensp;</p>
+        <p style="text-align: center;  line-height: 10px;">Bulls:{{game.attempts[(i * 6)]}}</p>
+        <p> &ensp;</p>
+        <p style="text-align: center; line-height: 10px;"> Cows:{{game.attempts[((i * 6 )+ 1)]}} </p>
         </div>
         {%endfor%}
        
         <br>
-       
       </div>
       <form action = "/start_game/{{game.game_id}}" >
         <button class="button3 glow-button3"><span style='color:bisque'>Play Again</span></button>

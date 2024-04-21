@@ -16,7 +16,7 @@
         <p> The player gets <span style='color:bisque'>10 chances</span> to correctly guess the entire number. </p>
         <p>The game is current on code {{gameid}} </p>
         <p> Are you ready <span style="text-transform:capitalize">{{current_user.username}}</span>?</p>
-        <form action = "/start_game/{{gameid}}" >
+        <form action = "/start_game" >
             <button class="button3 glow-button3"><span style='color:bisque'>Begin</span></button>
         </form>
     {% endif %}

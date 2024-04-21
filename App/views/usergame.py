@@ -9,19 +9,28 @@ from App.controllers import (
     guess_code,
     getInsult,
     daygame_played,
+    isExpired, 
+    get_game_count,
+    daily_reset,
     jwt_required
 )
 
 user_game_views = Blueprint('user_game_views', __name__, template_folder='../templates')
 
-@user_game_views.route('/start_game/<int:game_id>', methods=['GET'])
+@user_game_views.route('/start_game', methods=['GET'])
 @jwt_required()
-def start_game_session(game_id):
+def start_game_session():
+    game_id = get_game_count()
+
     if jwt_current_user.dailyGame == False:
+        if isExpired(game_id):
+            daily_reset()
+            session = create_game_session(jwt_current_user.id,game_id+1)
+            return redirect(url_for('user_game_views.game_session',game_id=session.id))
         flash("Daily game has already been played, please come back tomorrow")
         return redirect(request.referrer)
-    session = create_game_session(jwt_current_user.id,game_id)
     
+    session = create_game_session(jwt_current_user.id,game_id)
     return redirect(url_for('user_game_views.game_session',game_id=session.id))
 
 @user_game_views.route('/usergame/play/<int:game_id>', methods=['GET'])
@@ -39,7 +48,7 @@ def game_guess(game_id):
     str = ""
     for i in range(4):
         str +=data[f'n{i}']
-    unique = 0
+    unique = 0  
     for ch in str:
         if ch >= "0" and ch <= "9":
             for i in range(4):

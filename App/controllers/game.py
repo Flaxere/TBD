@@ -25,6 +25,7 @@ def isExpired(id):
     d1 = game.date_created.replace(hour=0, minute=0, second=0, microsecond=0)
     date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
     print(d1)
+    print("This is questionable")
     print(date)
     if get_difference(d1,date) >= 1:
         create_game()
